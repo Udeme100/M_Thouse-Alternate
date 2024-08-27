@@ -24,19 +24,21 @@ header {
     top: 0;
     z-index: 1000;
     display: flex;
-    justify-content: center; /* Center the content in the header */
+    justify-content: space-between; /* Adjust for spacing between logo and toggle */
     align-items: center;
 }
 
+/* Logo Styling */
 .logo img {
     height: 50px;
     margin-right: 20px;
 }
 
+/* Navigation Styling */
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Center the navigation menu */
+    justify-content: right; /* Center the navigation menu */
     align-items: center;
 }
 
@@ -58,7 +60,6 @@ nav ul li a:hover {
     display: none;
     cursor: pointer;
     z-index: 1100;
-    margin-left: 20px; /* Add some space to the left of the toggle */
 }
 
 #menu-toggle span {
@@ -362,10 +363,15 @@ footer {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    header {
+        justify-content: space-between; /* Distribute space between logo and menu toggle */
+        padding: 10px 20px; /* Adjust padding */
+    }
+
     nav ul {
         display: none;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start; /* Align to the left */
         background-color: rgba(255, 255, 255, 0.9);
         position: absolute;
         top: 60px;
@@ -386,12 +392,17 @@ footer {
     nav ul li a {
         display: block;
         padding: 15px;
-        text-align: center;
+        text-align: left; /* Align text to the left */
         color: #333;
     }
 
     #menu-toggle {
         display: block;
+        order: 2; /* Ensure it stays on the right */
+    }
+
+    .logo {
+        order: 1; /* Ensure logo stays on the left */
     }
 
     .slider-controls {
